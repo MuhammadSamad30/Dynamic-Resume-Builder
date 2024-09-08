@@ -1,8 +1,6 @@
-"use strict";
-// app.ts
 function toggleSkills() {
-    const skillsContent = document.getElementById('skills-content');
-    const toggleButton = document.querySelector('.toggle-button');
+    var skillsContent = document.getElementById('skills-content');
+    var toggleButton = document.querySelector('.toggle-button');
     if (skillsContent.style.display === 'none') {
         skillsContent.style.display = 'block';
         toggleButton.textContent = 'Hide Skills';
@@ -12,45 +10,22 @@ function toggleSkills() {
         toggleButton.textContent = 'Show Skills';
     }
 }
-// app.ts
 function generateResume() {
-    const name = document.getElementById('name').value
-    const email = document.getElementById('email').value
-    const number = document.getElementById('number').value
-    const cityElement = document.querySelector('input[name="city"]:checked')
-    const city = cityElement ? cityElement.value : ''
-    const skills = document.getElementById('Skills').value
-    const degree = document.getElementById('degree').value
-    const university = document.getElementById('university').value
-    const graduationDate = document.getElementById('graduation-date').value
-    const jobTitle = document.getElementById('job-title').value
-    const companyName = document.getElementById('company-name').value
-    const startDate = document.getElementById('start-date').value
-    const endDate = document.getElementById('end-date').value
-
-    const resumeContent = `
-        <h1>Resume</h1>
-        <h2>Personal Information</h2>
-        <p><strong>Full Name:</strong> ${name}</p>
-        <p><strong>Email Address:</strong> ${email}</p>
-        <p><strong>Contact Number:</strong> ${number}</p>
-        <p><strong>City:</strong> ${city}</p>
-
-        <h2>Skills</h2>
-        <p>${skills}</p>
-
-        <h2>Education</h2>
-        <p><strong>Degree:</strong> ${degree}</p>
-        <p><strong>University:</strong> ${university}</p>
-        <p><strong>Graduation Date:</strong> ${graduationDate}</p>
-
-        <h2>Work Experience</h2>
-        <p><strong>Job Title:</strong> ${jobTitle}</p>
-        <p><strong>Company Name:</strong> ${companyName}</p>
-        <p><strong>Start Date:</strong> ${startDate}</p>
-        <p><strong>End Date:</strong> ${endDate}</p>
-    `;
-    const resumeContentDiv = document.getElementById('resume-content');
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var number = document.getElementById('number').value;
+    var cityElement = document.querySelector('input[name="city"]:checked');
+    var city = cityElement ? cityElement.value : '';
+    var skills = document.getElementById('Skills').value;
+    var degree = document.getElementById('degree').value;
+    var university = document.getElementById('university').value;
+    var graduationDate = document.getElementById('graduation-date').value;
+    var jobTitle = document.getElementById('job-title').value;
+    var companyName = document.getElementById('company-name').value;
+    var startDate = document.getElementById('start-date').value;
+    var endDate = document.getElementById('end-date').value;
+    var resumeContent = "\n        <h1>Resume</h1>\n        <h2>Personal Information</h2>\n        <p><strong>Full Name:</strong> ".concat(name, "</p>\n        <p><strong>Email Address:</strong> ").concat(email, "</p>\n        <p><strong>Contact Number:</strong> ").concat(number, "</p>\n        <p><strong>City:</strong> ").concat(city, "</p>\n\n        <h2>Skills</h2>\n        <p>").concat(skills, "</p>\n\n        <h2>Education</h2>\n        <p><strong>Degree:</strong> ").concat(degree, "</p>\n        <p><strong>University:</strong> ").concat(university, "</p>\n        <p><strong>Graduation Date:</strong> ").concat(graduationDate, "</p>\n\n        <h2>Work Experience</h2>\n        <p><strong>Job Title:</strong> ").concat(jobTitle, "</p>\n        <p><strong>Company Name:</strong> ").concat(companyName, "</p>\n        <p><strong>Start Date:</strong> ").concat(startDate, "</p>\n        <p><strong>End Date:</strong> ").concat(endDate, "</p>\n    ");
+    var resumeContentDiv = document.getElementById('resume-content');
     resumeContentDiv.innerHTML = resumeContent;
     alert("Resume Generated! Check the console for detailed content.");
     console.log(resumeContent);
