@@ -12,21 +12,19 @@ function toggleSkills(): void {
   }
 
 function generateResume(): void {
-    const name = (document.getElementById('name') as HTMLInputElement).value;
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const number = (document.getElementById('number') as HTMLInputElement).value;
-
-    const cityElement = document.querySelector('input[name="city"]:checked') as HTMLInputElement | null;
-    const city = cityElement ? cityElement.value : '';
-
-    const skills = (document.getElementById('Skills') as HTMLInputElement).value;
-    const degree = (document.getElementById('degree') as HTMLInputElement).value;
-    const university = (document.getElementById('university') as HTMLInputElement).value;
-    const graduationDate = (document.getElementById('graduation-date') as HTMLInputElement).value;
-    const jobTitle = (document.getElementById('job-title') as HTMLInputElement).value;
-    const companyName = (document.getElementById('company-name') as HTMLInputElement).value;
-    const startDate = (document.getElementById('start-date') as HTMLInputElement).value;
-    const endDate = (document.getElementById('end-date') as HTMLInputElement).value;
+    const name = (document.getElementById('name') as HTMLInputElement)?.value.trim();
+    const email = (document.getElementById('email') as HTMLInputElement)?.value.trim();
+    const number = (document.getElementById('number') as HTMLInputElement)?.value.trim();
+    const city = (document.querySelector('input[name="city"]:checked') as HTMLInputElement)?.value || '';
+    const Skills = (document.getElementById('Skills') as HTMLInputElement)?.value.trim();
+    
+    const degree = (document.getElementById('degree') as HTMLInputElement)?.value.trim();
+    const university = (document.getElementById('university') as HTMLInputElement)?.value.trim();
+    const graduationDate = (document.getElementById('graduation-date') as HTMLInputElement)?.value;
+    const jobTitle = (document.getElementById('job-title') as HTMLInputElement)?.value.trim();
+    const companyName = (document.getElementById('company-name') as HTMLInputElement)?.value.trim();
+    const startDate = (document.getElementById('start-date') as HTMLInputElement)?.value;
+    const endDate = (document.getElementById('end-date') as HTMLInputElement)?.value;
 
     const resumeContent = `
         <h1>Resume</h1>
@@ -37,7 +35,7 @@ function generateResume(): void {
         <p><strong>City:</strong> ${city}</p>
 
         <h2>Skills</h2>
-        <p>${skills}</p>
+        <p><strong>Skills:</strong> ${Skills}</p>
 
         <h2>Education</h2>
         <p><strong>Degree:</strong> ${degree}</p>
