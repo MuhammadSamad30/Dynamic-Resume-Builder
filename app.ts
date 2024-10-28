@@ -26,32 +26,42 @@ function generateResume(): void {
     const startDate = (document.getElementById('start-date') as HTMLInputElement)?.value;
     const endDate = (document.getElementById('end-date') as HTMLInputElement)?.value;
 
-    const resumeContent = `
-        <h1>Resume</h1>
-        <h2>Personal Information</h2>
-        <p><strong>Full Name:</strong> ${name}</p>
-        <p><strong>Email Address:</strong> ${email}</p>
-        <p><strong>Contact Number:</strong> ${number}</p>
-        <p><strong>City:</strong> ${city}</p>
+    const imageUpload = document.getElementById('imageUplaod') as HTMLInputElement;
+    let imageUrl = '';
+    if (imageUpload?.files?.length) {
+        const file = imageUpload.files[0];
+        imageUrl = URL.createObjectURL(file);
+    }
 
-        <h2>Skills</h2>
-        <p><strong>Skills:</strong> ${Skills}</p>
+    const resumeContent = `  
 
-        <h2>Education</h2>
-        <p><strong>Degree:</strong> ${degree}</p>
-        <p><strong>University:</strong> ${university}</p>
-        <p><strong>Graduation Date:</strong> ${graduationDate}</p>
+    <h1 style="text-align: center; font-size: 2.5em; color: #333; margin-bottom: 20px; border-bottom: 2px solid #4a90e2; padding-bottom: 10px;">* Resume *</h1>        
+    ${imageUrl ? `<img src="${imageUrl}" alt="User Image" style="float:right; width:100px; height:100px; border-radius:50%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); margin: 0 0 20px 20px;"/>` : ''}
+    <h2 style="color: #4a90e2; font-size: 1.8em; margin-top: 20px;">Personal Information</h2>
+    <p><strong style="color: #333;">Full Name:</strong> ${name}</p>
+    <p><strong style="color: #333;">Email Address:</strong> ${email}</p>
+    <p><strong style="color: #333;">Contact Number:</strong> ${number}</p>
+    <p><strong style="color: #333;">City:</strong> ${city}</p>
 
-        <h2>Work Experience</h2>
-        <p><strong>Job Title:</strong> ${jobTitle}</p>
-        <p><strong>Company Name:</strong> ${companyName}</p>
-        <p><strong>Start Date:</strong> ${startDate}</p>
-        <p><strong>End Date:</strong> ${endDate}</p>
+    <h2 style="color: #4a90e2; font-size: 1.8em; margin-top: 20px;">Skills</h2>
+    <p><strong style="color: #333;">Skills:</strong> ${Skills}</p>
+
+    <h2 style="color: #4a90e2; font-size: 1.8em; margin-top: 20px;">Education</h2>
+    <p><strong style="color: #333;">Degree:</strong> ${degree}</p>
+    <p><strong style="color: #333;">University:</strong> ${university}</p>
+    <p><strong style="color: #333;">Graduation Date:</strong> ${graduationDate}</p>
+
+    <h2 style="color: #4a90e2; font-size: 1.8em; margin-top: 20px;">Work Experience</h2>
+    <p><strong style="color: #333;">Job Title:</strong> ${jobTitle}</p>
+    <p><strong style="color: #333;">Company Name:</strong> ${companyName}</p>
+    <p><strong style="color: #333;">Start Date:</strong> ${startDate}</p>
+    <p><strong style="color: #333;">End Date:</strong> ${endDate}</p>
+    
     `;
 
     const resumeContentDiv = document.getElementById('resume-content') as HTMLDivElement;
     resumeContentDiv.innerHTML = resumeContent;
 
-    alert("Resume Generated! Check the console for detailed content.");
+    alert("Resume Generated!");
     console.log(resumeContent);
 }
