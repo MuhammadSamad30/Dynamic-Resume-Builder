@@ -1,4 +1,22 @@
 "use strict";
+const background = document.querySelector('.background');
+const numberOfSpans = 300;
+for (let i = 0; i < numberOfSpans; i++) {
+    const span = document.createElement('span');
+    const x = Math.random() * 100;
+    const delay = Math.random() * 1;
+    const duration = Math.random() * 5 + 5;
+    span.style.left = `${x}vw`;
+    span.style.animationDelay = `${delay}s`;
+    span.style.animationDuration = `${duration}s`;
+    background.appendChild(span);
+}
+function goTo() {
+    window.location.href = "main.html";
+}
+function goBack() {
+    window.location.href = "index.html";
+}
 function toggleSkills() {
     const skillsContent = document.getElementById('skills-content');
     const toggleButton = document.querySelector('.toggle-button');
@@ -33,7 +51,7 @@ function generateResume() {
     }
     const resumeContent = `  
 
-    <h1 style="text-align: center; font-size: 2.5em; color: #333; margin-bottom: 20px; border-bottom: 2px solid #4a90e2; padding-bottom: 10px;">Resume</h1>        
+    <h1 style="text-align: center; font-size: 2.5em; color: #333; margin-bottom: 20px; border-bottom: 2px solid #4a90e2; padding-bottom: 10px;">* Resume *</h1>        
     ${imageUrl ? `<img src="${imageUrl}" alt="User Image" style="float:right; width:100px; height:100px; border-radius:50%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); margin: 0 0 20px 20px;"/>` : ''}
     <h2 style="color: #4a90e2; font-size: 1.8em; margin-top: 20px;">Personal Information</h2>
     <p><strong style="color: #333;">Full Name:</strong> ${name}</p>
